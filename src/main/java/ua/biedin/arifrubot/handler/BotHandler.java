@@ -23,8 +23,7 @@ public class BotHandler extends TelegramLongPollingBot {
     private String TOKEN;
     @Value("${bot_name}")
     private String BOT_NAME;
-    @Value("${get_information}")
-    private String GET_INFORMATION;
+    private String GET_INFORMATION = "Отримати інформацію щодо співробітника";
     private  final int START_STEP = 0;
     private final  int MENU_STEP = 1;
     private final int SEARCH_STEP = 2;

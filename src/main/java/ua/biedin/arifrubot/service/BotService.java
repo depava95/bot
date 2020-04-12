@@ -1,6 +1,7 @@
 package ua.biedin.arifrubot.service;
 
 import org.springframework.stereotype.Service;
+import ua.biedin.arifrubot.model.Step;
 import ua.biedin.arifrubot.model.User;
 import ua.biedin.arifrubot.repository.StepRepository;
 import ua.biedin.arifrubot.repository.UserRepository;
@@ -24,11 +25,15 @@ public class BotService {
     }
 
     public int getStep(Integer userId, Long chatId) {
-        Integer step = stepRepository.findByUserIdAndChatId(userId, chatId);
-        return step == null ? 0 : step;
+        Step step = stepRepository.findByUserIdAndChatId(userId, chatId);
+        return step == null ? 0 : step.getStep();
     }
 
-    public void createStep(Integer id, Long chatId, int menu_step) {
-
+    public void createStep(Integer userId, Long chatId, int stepNumber) {
+        Step step = new Step();
+        step.setUserId(userId);
+        step.setChatId(chatId);
+        step.setStep(stepNumber);
+        stepRepository.save(step);
     }
 }

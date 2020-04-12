@@ -7,6 +7,6 @@ import ua.biedin.arifrubot.model.Step;
 @Repository
 public interface StepRepository extends JpaRepository<Step, Long> {
 
-    Integer findByUserIdAndChatId(Integer userId, Long chatId);
+    Step findByUserIdAndChatId(Integer userId, Long chatId);
 
 }
